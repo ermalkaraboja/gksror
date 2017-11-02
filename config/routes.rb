@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'tests#index'
+  #get 'home/index'
+
+  root 'home#index'
 
   get '/' => 'application#show'
 
