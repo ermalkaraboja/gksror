@@ -12,5 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap_paper
+ *= require font-awesome
+ *= require bootstrap
+ *= require sb-admin
  */

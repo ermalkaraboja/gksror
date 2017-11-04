@@ -7,10 +7,12 @@
     = csrf_meta_tags
 
   %body
-    %h1.title Grade Keeping System
 
-    = render partial: 'layouts/messages'
 
-    = render partial: 'sessions/login'
+    %div{:id => 'wrapper'}
 
-    = yield
+      = render partial: 'layouts/navbar'
+
+      %div{:id => 'page-wrapper'}
+        %div{:class => 'container-fluid'}
+          = yield
