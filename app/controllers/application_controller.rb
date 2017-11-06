@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  #before_filter :try_login
+  before_action :try_login
 
   protected
   def try_login

@@ -1,0 +1,27 @@
+= form_with(model: course, local: true) do |form|
+  - if course.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(course.errors.count, "error") + 'prohibited this course from being saved:'
+      %ul
+      - course.errors.full_messages.each do |message|
+        %li
+          = message
+  .field
+    = form.label :code
+    = form.text_field :code, id: :course_code
+
+  .field
+    = form.label :description
+    = form.text_field :description, id: :course_description
+
+  .field
+    = form.label :semester
+    = form.text_field :semester, id: :course_semester
+
+  .field
+    = form.label :note
+    = form.text_field :note, id: :course_note
+
+  .actions
+    = form.submit

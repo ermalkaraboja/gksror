@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+courses = [
+    {
+        code: 'CS01',
+        description: 'Course 01',
+        semester: 'Fall 2016',
+        note: 'Shenime',
+    },
+    {
+        code: 'CS02',
+        description: 'Course 02',
+        semester: 'Fall 2016',
+        note: 'Shenime',
+    }
+]
+
+courses.each {|course| Course.create! course}

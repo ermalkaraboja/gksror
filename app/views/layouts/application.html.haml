@@ -7,12 +7,10 @@
     = csrf_meta_tags
 
   %body
-
-
-    %div{:id => 'wrapper'}
+    #wrapper
 
       = render partial: 'layouts/navbar'
 
-      %div{:id => 'page-wrapper'}
-        %div{:class => 'container-fluid'}
+      #page-wrapper
+        .container-fluid
           = yield
