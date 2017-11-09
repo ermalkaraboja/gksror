@@ -17,7 +17,7 @@ production:
   adapter: postgresql
   encoding: unicode
   #port: 5432
-  database: postgres://rpanubutaktagl:21338ea0b62194b00fb38f59d9ea05f1c25b667d2ecf1070593ea3f89e1cdb0c@ec2-23-23-78-213.compute-1.amazonaws.com:5432/de0v0f3jtune1d
+  database: postgresql-reticulated-59274
   pool: 5
   username: ror
   password:
