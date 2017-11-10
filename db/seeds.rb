@@ -20,4 +20,34 @@ courses = [
     }
 ]
 
-courses.each {|course| Course.create! course}
+roles = [
+    {
+        code: 'INS',
+        description: 'Instructor'
+    },
+    {
+        code: 'STD',
+        description: 'Student'
+    }
+]
+
+users = [
+    {
+        name:'Ermal',
+        surname: 'Karaboja',
+        email: 'ermalkaraboja@gmail.com',
+        password: 'Ermal1234!',
+        role_id: Role.first.id
+    },
+    {
+        name:'Ernida',
+        surname: 'Kraja',
+        email: 'ernidakraja@gmail.com',
+        password: 'Ernida1234!',
+        role_id: Role.second.id
+    }
+]
+
+#courses.each {|course| Course.create! course}
+#roles.each {|role| Role.create! role}
+users.each {|user| User.create! user}

@@ -1,7 +1,7 @@
 %div{:class => 'test-class', :style => 'color:red'}
-  - if @user
+  - if @current_user
     %p
-      Welcome, #{@user.identifier}!
+      Welcome, #{@current_user.name} #{@current_user.surname}!
       = link_to 'Log Out', logout_path, :method => :post
   - else
     %p.login Log in #{link_to 'here', login_path} for full access

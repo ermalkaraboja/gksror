@@ -1,2 +1,12 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.haml
+-# in app/views/sessions/new.html.haml
+- provide(:title, 'Login Page')
+%h1 Log in
+
+= form_tag login_path, :method => :post do
+  = label :user, :email, 'Email'
+  = text_field :user, 'email'
+
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = submit_tag 'Login'
