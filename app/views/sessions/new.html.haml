@@ -3,10 +3,12 @@
 %h1 Log in
 
 = form_tag login_path, :method => :post do
-  = label :user, :email, 'Email'
-  = text_field :user, 'email'
+  .form-group
+    = label :user, :email, 'Email', class: 'control-label'
+    = text_field :user, 'email', class: 'form-control'
 
-  = label :user, :password, 'Password'
-  = password_field :user, 'password'
+  .form-group
+    = label :user, :password, 'Password', class: 'control-label'
+    = password_field :user, 'password', class: 'form-control'
 
-  = submit_tag 'Login'
+  = submit_tag 'Login', class:'btn btn-primary'
