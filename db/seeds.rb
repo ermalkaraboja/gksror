@@ -37,22 +37,24 @@ users = [
         surname: 'Karaboja',
         email: 'ermalkaraboja@gmail.com',
         password: 'Ermal1234!',
-        role_id: Role.first.id
-    }, {
+        role_id: 1
+    },
+    {
         name: 'Ernida',
         surname: 'Kraja',
         email: 'ernidakraja@gmail.com',
         password: 'Ernida1234!',
-        role_id: Role.second.id
-    }, {
+        role_id: 2
+    },
+    {
         name: 'Zhorzheta',
         surname: 'Sota',
         email: 'zhorzhetasota@gmail.com',
         password: 'Zhorzheta1234!',
-        role: Role.first
+        role_id: 2
     }
 ]
 
-#courses.each {|course| Course.create! course}
-#roles.each {|role| Role.create! role}
+courses.each {|course| Course.create! course}
+roles.each {|role| Role.create! role}
 users.each {|user| User.create! user}
