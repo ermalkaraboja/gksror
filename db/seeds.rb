@@ -33,18 +33,23 @@ roles = [
 
 users = [
     {
-        name:'Ermal',
+        name: 'Ermal',
         surname: 'Karaboja',
         email: 'ermalkaraboja@gmail.com',
         password: 'Ermal1234!',
         role_id: Role.first.id
-    },
-    {
-        name:'Ernida',
+    }, {
+        name: 'Ernida',
         surname: 'Kraja',
         email: 'ernidakraja@gmail.com',
         password: 'Ernida1234!',
         role_id: Role.second.id
+    }, {
+        name: 'Zhorzheta',
+        surname: 'Sota',
+        email: 'zhorzhetasota@gmail.com',
+        password: 'Zhorzheta1234!',
+        role: Role.first
     }
 ]
 

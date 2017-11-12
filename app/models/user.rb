@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :role_id, presence: true
 
+  validate :validate_role
 
   def matches_password? pass
     self.password == pass
@@ -19,4 +20,12 @@ class User < ApplicationRecord
   def full_name
     self.name + ' ' + self.surname
   end
+
+  private
+  def validate_role
+    if (self.role.blank? && self.role_id.blank?)
+      errors.add(base, 'Role not specified!')
+    end    
+  end
+
 end
