@@ -1,4 +1,4 @@
-%li.active
+%li{:class => active_class(menu_item.path)}
   %a{href:"#{menu_item.path}"}
     %i{class:"fa fa-fw #{menu_item.icon}"}
     #{menu_item.description}
