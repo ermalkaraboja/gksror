@@ -1,8 +1,7 @@
-class StudentsController < ActionController::Base
+class StudentsController < ApplicationController
 
   def show
-    #Users.all.select {|x| x.role_id.equal? 2 }
-    @students = User.all
+    role = Role.find_by_description :Student
+    @students = Array.wrap Student.find_by_role_id role.id
   end
-
 end

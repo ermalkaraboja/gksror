@@ -1,6 +1,9 @@
 - if flash[:notice]
-  #notice.message= flash[:notice]
+  .alert.alert-info
+    =flash[:notice]
 - elsif flash[:warning]
-  #warning.message= flash[:warning]
+  .alert.alert-warning
+    =flash[:warning]
 - elsif flash[:danger]
-  #danger.message= flash[:danger]
+  .alert.alert-danger
+    =flash[:danger]
