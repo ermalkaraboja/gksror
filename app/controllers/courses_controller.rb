@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   before_action(except: [:index, :new]) {
-    try_login
     validate_rights :Instructor
   }
 

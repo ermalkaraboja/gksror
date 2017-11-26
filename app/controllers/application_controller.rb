@@ -44,7 +44,8 @@ class ApplicationController < ActionController::Base
   private
   def validate_rights(roles)
     try_login
-    unless ((Array.wrap(@current_user.role.description) - Array.wrap(roles.to_s)).empty?)
+    roles = roles.kind_of?(Array) ? roles.select {|x| x.to_s} : Array.wrap(roles.to_s)
+    unless ((Array.wrap(@current_user.role.description) - Array.wrap(roles)).empty?)
       flash[:danger] = 'You are not allowd to do this operations! Please try to sign in with a different username.'
       redirect_to root_path
     end
