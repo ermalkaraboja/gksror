@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def set_menu
     @menu = [
         MenuItem.new('Courses', '/courses', 'fa-book'),
-        MenuItem.new('Students', '#', 'fa-users'),
+        MenuItem.new('Students', '/students', 'fa fa-graduation-cap'),
     ]
   end
 
