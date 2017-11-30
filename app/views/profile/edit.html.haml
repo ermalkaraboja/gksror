@@ -4,14 +4,7 @@
 
 = form_tag '/profile/settings/update', :method => :put do
 
-  - if @profile.errors.any?
-    .alert.alert-danger
-      %h2
-        = pluralize(@profile.errors.count, "error") + 'prohibited this course from being saved:'
-      %ul
-      - @profile.errors.full_messages.each do |message|
-        %li
-          = message
+  = write_validation_errors_for @profile
 
   .form-group
     = label :profile, :name, 'Name', class: 'control-label'

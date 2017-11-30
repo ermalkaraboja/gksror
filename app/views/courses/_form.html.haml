@@ -1,27 +1,23 @@
 = form_with(model: course, local: true) do |form|
-  - if course.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(course.errors.count, "error") + 'prohibited this course from being saved:'
-      %ul
-      - course.errors.full_messages.each do |message|
-        %li
-          = message
-  .field
-    = form.label :code
-    = form.text_field :code, id: :course_code
+  = write_validation_errors_for course
 
-  .field
-    = form.label :description
-    = form.text_field :description, id: :course_description
+  .form-group
+    = form.label :code, clas:'control-label'
+    = form.text_field :code, id: :course_code, class:'form-control'
 
-  .field
-    = form.label :semester
-    = form.text_field :semester, id: :course_semester
+  .form-group
+    = form.label :description, clas:'control-label'
+    = form.text_field :description, id: :course_description, class:'form-control'
 
-  .field
-    = form.label :note
-    = form.text_field :note, id: :course_note
+  .form-group
+    = form.label :semester, clas:'control-label'
+    = form.text_field :semester, id: :course_semester, class:'form-control'
 
-  .actions
-    = form.submit
+  .form-group
+    = form.label :note, clas:'control-label'
+    = form.text_field :note, id: :course_note, class:'form-control'
+
+  = button_tag  type: 'submit', class: 'btn btn-default' do
+    %span
+      %i{class: 'fa fa-save'}
+      #{course.id.nil? ? 'Save' : 'Edit'} Course

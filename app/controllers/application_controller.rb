@@ -15,9 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-  def try_login
+  def try_login(message = '')
     check_user_from_session
-    redirect_to login_path and return if @current_user.nil?
+    if @current_user.nil?
+      flash[:warning] = message unless message.blank?
+      redirect_to login_path
+    end
+
   end
 
   private
@@ -40,12 +44,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  private
   def validate_rights(roles)
-    try_login
+    try_login('You should try to login to indentify yourself!')
     roles = roles.kind_of?(Array) ? roles.select {|x| x.to_s} : Array.wrap(roles.to_s)
-    unless ((Array.wrap(@current_user.role.description) - Array.wrap(roles)).empty?)
+    unless (@current_user.nil? || (Array.wrap(@current_user.role.description) & Array.wrap(roles)).any?)
       flash[:danger] = 'You are not allowd to do this operations! Please try to sign in with a different username.'
       redirect_to root_path
     end

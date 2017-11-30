@@ -16,3 +16,19 @@
  *= require bootstrap
  *= require sb-admin
  */
+
+body {
+    background-color: #f9f9f9 !important;
+    height: calc(100vh - 50px);
+}
+
+#wrapper {
+    height: 100%;
+}
+
+#page-wrapper {
+    height: 100%;
+    background-color: transparent !important;
+}
+
+
