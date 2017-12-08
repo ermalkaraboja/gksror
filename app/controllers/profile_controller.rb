@@ -3,12 +3,12 @@ class ProfileController < ApplicationController
   before_action :try_login, :set_profile
 
   def edit
-    @profile = @current_user
+    @profile = User.find @current_user.id
   end
 
   def update
     respond_to do |format|
-      @profile = @current_user
+      @profile = User.find @current_user.id
       if @profile.update(profile_params)
         flash[:notice] = "Prfiles was successfully updated."
         format.html {redirect_to '/profile/settings', notice: 'Prfiles was successfully updated.'}

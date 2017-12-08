@@ -1,4 +1,4 @@
 .collapse.navbar-collapse.navbar-ex1-collapse
   %ul.nav.navbar-nav.side-nav
     -@menu.each do |menu_item|
-      =render 'layouts/menu_item', {:menu_item => menu_item}
+      =render 'layouts/partials/menu_item', {:menu_item => menu_item}

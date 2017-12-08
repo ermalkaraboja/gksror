@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action(except: [:index, :new]) {
+  before_action(except: [:index]) {
     validate_rights :Instructor
   }
 

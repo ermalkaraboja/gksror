@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   belongs_to :role
 
+  scope :Instructor, -> {where(role_id: Role.find_by_description(:Instructor).id)}
+  scope :Student, -> {where(role_id: Role.find_by_description(:Student).id)}
+
   validates :name, presence: true, length: {maximum: 30}
   validates :surname, presence: true, length: {maximum: 30}
   validates :email, presence: true
@@ -25,7 +28,7 @@ class User < ApplicationRecord
   def validate_role
     if (self.role.blank? && self.role_id.blank?)
       errors.add(base, 'Role not specified!')
-    end    
+    end
   end
 
 end
