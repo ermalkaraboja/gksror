@@ -11,10 +11,10 @@
   %body
     #wrapper
 
-      = render partial: 'layouts/navbar'
+      = render partial: 'layouts/partials/navbar'
 
       #page-wrapper
         .container-fluid
-          = render partial: 'layouts/messages'
+          = render partial: 'layouts/partials/messages'
           
           = yield
