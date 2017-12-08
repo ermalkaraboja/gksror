@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
 
-  before_action :try_login, :set_profile
+  before_action :try_login, :set_password
 
   def edit
     @profile = @current_user
@@ -10,8 +10,8 @@ class ProfileController < ApplicationController
     respond_to do |format|
       @profile = @current_user
       if @profile.update(profile_params)
-        flash[:notice] = "Prfiles was successfully updated."
-        format.html {redirect_to '/profile/settings', notice: 'Prfiles was successfully updated.'}
+        flash[:notice] = "Profile was successfully updated."
+        format.html {redirect_to '/profile/settings', notice: 'Profile was successfully updated.'}
         format.json {render :edit, status: :ok, location: @profile}
       else
         format.html {render :edit, danger: 'Profile not saved!'}
@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
   end
 
   private
-  def set_profile
+  def set_password
     @profile = @current_user
   end
 

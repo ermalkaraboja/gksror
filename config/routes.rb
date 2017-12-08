@@ -19,5 +19,8 @@ Rails.application.routes.draw do
 
   get '/profile/settings' => 'profile#edit'
   put '/profile/settings/update' => 'profile#update'
+  
+  get '/change_pass' => 'change_pass#edit'
+  put '/change_pass/update' => 'change_pass#update'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

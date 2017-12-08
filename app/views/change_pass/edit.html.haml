@@ -1,0 +1,14 @@
+- provide(:title, 'Login Page')
+
+%h1 Change password
+
+= form_tag '/change_pass/update', :method => :put do
+
+
+  .form-group
+    = label :profile, :password, 'Password', class: 'control-label'
+    = text_field :profile, 'password', class: 'form-control'  
+
+
+
+    = submit_tag 'Save Changes'
