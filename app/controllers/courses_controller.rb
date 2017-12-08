@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
-  before_action(except: [:index]) {
+  before_action(except: [:index, :show]) {
     validate_rights :Instructor
   }
 
-  before_action(only: [:show, :edit, :update, :destroy]){
+  before_action(only: [:show, :edit, :update, :destroy]) {
     set_course
   }
 
