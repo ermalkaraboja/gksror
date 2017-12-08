@@ -1,9 +1,8 @@
 class ChangePassController < ApplicationController
 
-  before_action :try_login, :set_change_pass
+  before_action :try_login
 
   def edit
-    @change_pass = User.find @current_user.id
   end
 
   def update
@@ -21,8 +20,8 @@ class ChangePassController < ApplicationController
   end
 
   private
-  def set_change_pass
-    @change_pass = @current_user
+  def userRepo
+    UserRepository.new
   end
 
   private

@@ -1,5 +1,5 @@
 .row
   .col-xs-12
 
-    =write_table_for @students, 'Students'
+    = write_table_for source: @students, config_hash: {:show => :Instructor, :edit => :Instructor, :destroy => :Instructor}
 

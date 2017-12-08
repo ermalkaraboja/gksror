@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :check_user_from_session, :set_menu
+  helper_method :has_rights
 
   def set_menu
     # TODO retrieve menu from DB (Enhacement)
@@ -19,9 +20,8 @@ class ApplicationController < ActionController::Base
     check_user_from_session
     if @current_user.nil?
       flash[:warning] = message unless message.blank?
-      redirect_to login_path
+      redirect_to login_path and return
     end
-
   end
 
   private
@@ -46,11 +46,19 @@ class ApplicationController < ActionController::Base
   private
   def validate_rights(roles)
     try_login('You should try to login to indentify yourself!')
-    roles = roles.kind_of?(Array) ? roles.select {|x| x.to_s} : Array.wrap(roles.to_s)
-    unless (@current_user.nil? || (Array.wrap(@current_user.role.description) & Array.wrap(roles)).any?)
-      flash[:danger] = 'You are not allowd to do this operations! Please try to sign in with a different username.'
-      redirect_to root_path
+    unless roles.nil?
+      unless (has_rights roles)
+        flash[:danger] = 'You are not allowd to do this operations! Please try to sign in with a different username.'
+        redirect_to root_path and return unless @current_user.nil?
+      end
     end
+  end
+
+  def has_rights(roles)
+    return true if roles.nil?
+
+    roles = roles.kind_of?(Array) ? roles.select {|x| x.to_s} : Array.wrap(roles.to_s)
+    (Array.wrap(@current_user.nil? ? [] : @current_user.role.description) & Array.wrap(roles)).any?
   end
 
 end

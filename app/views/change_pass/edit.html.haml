@@ -6,9 +6,12 @@
 
 
   .form-group
-    = label :profile, :password, 'Password', class: 'control-label'
-    = text_field :profile, 'password', class: 'form-control'  
+    = label :change_pass, :old_password, 'Old password', class: 'control-label'
+    = password_field :change_pass, 'old_password', class: 'form-control'
+
+  .form-group
+    = label :change_pass, :new_password, 'New password', class: 'control-label'
+    = password_field :change_pass, 'new_password', class: 'form-control'
 
 
-
-    = submit_tag 'Save Changes'
+  = submit_tag 'Save Changes'
