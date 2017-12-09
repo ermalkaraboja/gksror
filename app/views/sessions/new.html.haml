@@ -1,14 +1,15 @@
 -# in app/views/sessions/new.html.haml
 - provide(:title, 'Login Page')
-%h1 Log in
+.col-lg-3.col-md-4.col-xs-6
+  %h1 Log in
 
-= form_tag login_path, :method => :post do
-  .form-group
-    = label :user, :email, 'Email', class: 'control-label'
-    = text_field :user, 'email', class: 'form-control'
+  = form_tag login_path, :method => :post do
+    .form-group
+      = label :user, :email, 'Email', class: 'control-label'
+      = text_field :user, 'email', class: 'form-control'
 
-  .form-group
-    = label :user, :password, 'Password', class: 'control-label'
-    = password_field :user, 'password', class: 'form-control'
+    .form-group
+      = label :user, :password, 'Password', class: 'control-label'
+      = password_field :user, 'password', class: 'form-control'
 
-  = submit_tag 'Login', class:'btn btn-primary'
+    = submit_tag 'Login', class:'pull-right btn btn-primary'
