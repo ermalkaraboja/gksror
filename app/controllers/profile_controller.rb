@@ -18,9 +18,11 @@ class ProfileController < ApplicationController
       }
       current_pass_params = password_params
 
-      if @current_user.matches_password? current_pass_params[:old_password] && current_pass_params[:password] == current_pass_params[:confirm_password]
+      if @current_user.password == current_pass_params[:old_password] && current_pass_params[:password] == current_pass_params[:confirm_password] 
         @current_user.password = current_pass_params[:password]
-        success.call("Password changed successfully.") unless @current_user.save
+        if @current_user.save
+        success.call("Password changed successfully.")
+        end
       else
         error.call("Password doesnt match, please try again.")
       end

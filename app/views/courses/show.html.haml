@@ -23,3 +23,10 @@
 
 = link_to 'Edit', edit_course_path(@course) if has_rights :Instructor
 = link_to 'Back', courses_path
+
+.row
+  .col-xs-12
+
+    = write_table_for source: @assesments, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor}, title: 'Assesment'
+
+    = link_to ' Add', new_course_path, class: 'fa fa-book btn btn-default' if has_rights :Instructor

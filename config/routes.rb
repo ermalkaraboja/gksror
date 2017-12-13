@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :assesments
   resources :courses
   #get 'home/index'
 

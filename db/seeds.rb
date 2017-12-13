@@ -20,6 +20,17 @@ courses = [
     }
 ]
 
+assesments = [
+    {
+        title: 'assesment one',
+        weight: 0.5,
+    },
+    {
+        title: 'assesment one',
+        weight: 0.2,
+    }
+]
+
 roles = [
     {
         code: 'INS',
