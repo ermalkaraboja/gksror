@@ -69,3 +69,5 @@ users = [
 courses.each {|course| Course.create! course}
 roles.each {|role| Role.create! role}
 users.each {|user| User.create! user}
+
+assesments.each {|assesment| Assesment.create! assesment}

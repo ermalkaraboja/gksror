@@ -4,6 +4,8 @@ class User < ApplicationRecord
   scope :Instructor, -> {where(role_id: Role.find_by_description(:Instructor).id)}
   scope :Student, -> {where(role_id: Role.find_by_description(:Student).id)}
 
+  has_many :courses, :through => Instructor
+
   validates :name, presence: true, length: {maximum: 30}
   validates :surname, presence: true, length: {maximum: 30}
   validates :email, presence: true
@@ -17,7 +19,7 @@ class User < ApplicationRecord
   validate :validate_role
 
   def matches_password? pass
-    self.password == pass
+    self.password.equal? pass
   end
 
   def full_name
