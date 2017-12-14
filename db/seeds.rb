@@ -22,12 +22,12 @@ courses = [
 
 assesments = [
     {
-        title: 'assesment one',
-        weight: 0.5,
+        title: 'AS01',
+        weight: '0.4',
     },
     {
-        title: 'assesment one',
-        weight: 0.2,
+        title: 'AS02',
+        weight: '0.6',
     }
 ]
 
@@ -69,5 +69,9 @@ users = [
 courses.each {|course| Course.create! course}
 roles.each {|role| Role.create! role}
 users.each {|user| User.create! user}
+<<<<<<< HEAD
 
 assesments.each {|assesment| Assesment.create! assesment}
+=======
+assesments.each{|assesment| Assesment.create! assesment}
+>>>>>>> 60c3712f108ff6d05073bf1cda56b9315991d166
