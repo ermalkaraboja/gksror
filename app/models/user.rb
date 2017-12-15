@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   belongs_to :role
 
+  has_many :usercourses
+  has_many :courses, :through => :usercourses, foreign_key: :course_id
+
   scope :Instructor, -> {where(role_id: Role.find_by_description(:Instructor).id)}
   scope :Student, -> {where(role_id: Role.find_by_description(:Student).id)}
-
-  has_many :courses, :through => :user_courses
 
   validates :name, presence: true, length: {maximum: 30}
   validates :surname, presence: true, length: {maximum: 30}

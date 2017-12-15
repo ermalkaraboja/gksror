@@ -49,15 +49,15 @@ ActiveRecord::Schema.define(version: 20171214183159) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "usercourse", force: :cascade do |t|
+  create_table "usercourses", force: :cascade do |t|
     t.integer "instructor_id"
     t.integer "student_id"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_usercourse_on_course_id"
-    t.index ["instructor_id"], name: "index_usercourse_on_instructor_id"
-    t.index ["student_id"], name: "index_usercourse_on_student_id"
+    t.index ["course_id"], name: "index_usercourses_on_course_id"
+    t.index ["instructor_id"], name: "index_usercourses_on_instructor_id"
+    t.index ["student_id"], name: "index_usercourses_on_student_id"
   end
 
   create_table "users", force: :cascade do |t|
