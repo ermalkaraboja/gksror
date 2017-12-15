@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def write_validation_errors_for(model)
-    write_errors_for model if model.errors.any?
+    write_errors_for model unless model.nil? || model.errors.blank?
   end
 
   private
@@ -24,6 +24,9 @@ module ApplicationHelper
 
 
   def write_table_for(title: nil, source: nil, config_hash: nil)
+    if source.nil? || source.blank?
+      return
+    end
     source = Array.wrap(source)
     capture_haml do
       haml_tag :h1, title.nil? ? source.first.class.to_s.capitalize.pluralize : title
@@ -69,6 +72,15 @@ module ApplicationHelper
       when 'destroy'
         link_to ' Delete', model, method: :delete, data: {confirm: 'Are you sure?'}, class: 'fa fa-trash btn btn-default'
     end
+  end
+
+  def method_missing(m, *args, &block)
+    if m.to_s.include? 'assesment'
+      unless m.to_s.include? 'course'
+        self.send(m.to_s.split('assesment')[0] + 'course_assesment' + m.to_s.split('assesment')[1], *args, &block)
+      end
+    end
+    #method_missing(m, *args, &block)
   end
 end
 

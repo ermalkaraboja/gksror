@@ -16,7 +16,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @assesments = Assesment.all
+    @assesments = Assesment.where(:course_id => @course.id)
+    @students = User.Student.all.map {|std| std.becomes(Student)}
   end
 
   # GET /courses/new

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :assesments
-  resources :courses
+
+  resources :students
+  resources :users
+  resources :courses do
+    resources :assesments
+  end
   #get 'home/index'
 
   root 'courses#index'
@@ -15,7 +19,6 @@ Rails.application.routes.draw do
 
   #get '/students' => 'students#index'
 
-  resources :students
   #resources :profile
 
   get '/profile/settings' => 'profile#edit'

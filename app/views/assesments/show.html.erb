@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @assesment.title %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @assesment.weight %>
+</p>
+
+<%= link_to 'Edit', edit_assesment_path(@assesment) %> |
+<%= link_to 'Back', course_path %>
+
+<%= write_table_for source: @grades %>

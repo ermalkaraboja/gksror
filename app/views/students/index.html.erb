@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<%= write_table_for source: @students, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor} %>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

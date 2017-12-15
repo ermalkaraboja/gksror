@@ -3,5 +3,5 @@
 
     = write_table_for source: @courses, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor}
 
-    = link_to ' Add', new_course_path, class: 'fa fa-book btn btn-default' if has_rights :Instructor
+    = link_to ' Add Course', new_course_path, class: 'fa fa-plus btn btn-default' if has_rights :Instructor
     

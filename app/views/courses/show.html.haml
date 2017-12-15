@@ -27,6 +27,9 @@
 .row
   .col-xs-12
 
-    = write_table_for source: @assesments, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor}, title: 'Assesment'
+    = write_table_for source: @assesments, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor}
+    = link_to ' Add', new_course_assesment_path(@course), class: 'fa fa-plus btn btn-default' if has_rights :Instructor
 
-    = link_to ' Add', new_course_path, class: 'fa fa-book btn btn-default' if has_rights :Instructor
+
+    = write_table_for source: @students, config_hash: {:show => nil, :edit => :Instructor, :destroy => :Instructor}
+    = link_to ' Add', new_course_assesment_path(@course), class: 'fa fa-plus btn btn-default' if has_rights :Instructor
